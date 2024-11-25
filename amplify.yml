@@ -1,0 +1,19 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - nvm install 18.18.2
+        - nvm use 18.18.2
+        - npm install -g @angular/cli@16
+        - npm install
+    build:
+      commands:
+        - ng build --configuration production
+  artifacts:
+    baseDirectory: dist/RealityLab_Chido # Reemplaza con tu carpeta de salida
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/* 
